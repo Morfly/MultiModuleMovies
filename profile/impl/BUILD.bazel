@@ -1,0 +1,32 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
+kt_android_library(
+    name = "impl",
+    srcs = glob(["src/main/kotlin/**/*.kt"]),
+    resource_files = glob(["src/main/res/**"]),
+    custom_package = "com.morfly.sample.profile.impl",
+    manifest = "src/main/AndroidManifest.xml",
+    plugins = ["//tools:jetpack_compose_compiler_plugin"],
+    exports = ["//profile/api"],
+    visibility = ["//app:__pkg__"],
+    deps = [
+        "//common",
+        "//data/api",
+        "//profile/api",
+        "//:dagger",
+        artifact("androidx.compose.runtime:runtime"),
+        artifact("androidx.core:core-ktx"),
+        artifact("androidx.appcompat:appcompat"),
+        artifact("com.google.android.material:material"),
+        artifact("androidx.compose.ui:ui"),
+        artifact("androidx.compose.ui:ui-tooling"),
+        artifact("androidx.compose.material:material"),
+        artifact("androidx.activity:activity-compose"),
+        artifact("androidx.navigation:navigation-compose"),
+        artifact("androidx.lifecycle:lifecycle-viewmodel-compose"),
+        artifact("io.coil-kt:coil-compose"),
+        artifact("androidx.paging:paging-compose"),
+        artifact("androidx.paging:paging-runtime-ktx"),
+    ],
+)

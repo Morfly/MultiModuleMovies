@@ -31,7 +31,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun NavigationSampleTheme(
+fun ComposeArchTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {

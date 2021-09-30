@@ -9,12 +9,18 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.morfly.sample"
+        applicationId = "com.morfly.sample.archcompose"
         versionCode = 1
         versionName = "1.0"
 
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    signingConfigs {
+        named("debug") {
+            storeFile = file("../debug.keystore")
         }
     }
 
