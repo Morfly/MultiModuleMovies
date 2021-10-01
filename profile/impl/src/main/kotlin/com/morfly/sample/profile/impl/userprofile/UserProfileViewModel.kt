@@ -39,7 +39,7 @@ class UserProfileViewModel @Inject constructor(
         }
     }
 
-    fun updateUserInfo(user: User) {
+    private fun updateUserInfo(user: User) {
         mutableAvatarUrl.value = user.imageUrl
         mutableUsername.value = user.name
     }

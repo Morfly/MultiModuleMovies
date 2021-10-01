@@ -20,7 +20,7 @@ android {
 
     signingConfigs {
         named("debug") {
-            storeFile = file("../debug.keystore")
+            storeFile = rootProject.file("debug.keystore")
         }
     }
 
