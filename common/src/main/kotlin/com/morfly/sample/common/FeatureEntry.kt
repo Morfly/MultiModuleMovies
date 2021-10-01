@@ -24,16 +24,9 @@ interface FeatureEntry {
 
 interface ComposableFeatureEntry : FeatureEntry {
 
-    fun NavGraphBuilder.composable(
-        navController: NavHostController,
-        destinations: Destinations,
-    ) {
-        composable(
-            this@ComposableFeatureEntry.featureRoute,
-            this@ComposableFeatureEntry.arguments,
-            this@ComposableFeatureEntry.deepLinks
-        ) {
-            Composable(navController, destinations, backStackEntry = it)
+    fun NavGraphBuilder.composable(navController: NavHostController, destinations: Destinations) {
+        composable(featureRoute, arguments, deepLinks) { backStackEntry ->
+            Composable(navController, destinations, backStackEntry)
         }
     }
 
@@ -47,10 +40,7 @@ interface ComposableFeatureEntry : FeatureEntry {
 
 interface AggregateFeatureEntry : FeatureEntry {
 
-    fun NavGraphBuilder.navigation(
-        navController: NavHostController,
-        destinations: Destinations,
-    )
+    fun NavGraphBuilder.navigation(navController: NavHostController, destinations: Destinations)
 }
 
 
