@@ -65,9 +65,7 @@ fun BottomMenuBar(
                     interactionSource = remember { MutableInteractionSource() }
                 ) {
                     val route = destinations.find<ImagesEntry>().featureRoute
-                    navController.navigate(route) {
-                        launchSingleTop = true
-                    }
+                    navController.popBackStack(route, inclusive = false)
                 }
         )
         Box(contentAlignment = Alignment.Center) {

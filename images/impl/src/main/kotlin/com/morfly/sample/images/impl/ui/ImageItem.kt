@@ -234,7 +234,7 @@ fun Comments(comments: String) {
         Icon(
             painter = painterResource(R.drawable.ic_round_chat_24),
             contentDescription = null,
-            tint = MaterialTheme.colors.onPrimary
+            tint = MaterialTheme.colors.primary
         )
         Row(
             horizontalArrangement = Arrangement.Center,
