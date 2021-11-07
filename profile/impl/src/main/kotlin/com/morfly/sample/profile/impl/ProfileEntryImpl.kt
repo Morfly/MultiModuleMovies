@@ -3,15 +3,15 @@
 package com.morfly.sample.profile.impl
 
 import android.annotation.SuppressLint
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.morfly.sample.common.Destinations
 import com.morfly.sample.common.di.injectedViewModel
+import com.morfly.sample.data.DataProvider
 import com.morfly.sample.data.LocalDataProvider
-import com.morfly.sample.profile.ProfileFeatureEntry
+import com.morfly.sample.profile.ProfileEntry
 import com.morfly.sample.profile.impl.di.DaggerProfileComponent
 import com.morfly.sample.profile.impl.settings.di.DaggerSettingsComponent
 import com.morfly.sample.profile.impl.settings.ui.SettingsScreen
@@ -20,13 +20,7 @@ import com.morfly.sample.profile.impl.userprofile.ui.UserProfileScreen
 import javax.inject.Inject
 
 
-class ProfileFeatureEntryImpl @Inject constructor() : ProfileFeatureEntry() {
-
-    private val parentComponent
-        @Composable
-        get() = DaggerProfileComponent.builder()
-            .dataProvider(LocalDataProvider.current)
-            .build()
+class ProfileEntryImpl @Inject constructor() : ProfileEntry() {
 
     override fun NavGraphBuilder.navigation(
         navController: NavHostController,
@@ -39,7 +33,7 @@ class ProfileFeatureEntryImpl @Inject constructor() : ProfileFeatureEntry() {
 
                 val viewModel = injectedViewModel {
                     DaggerUserProfileComponent.factory()
-                        .create(parentComponent, userId)
+                        .create(buildRootProfileComponent(LocalDataProvider.current), userId)
                         .viewModel
                 }
                 UserProfileScreen(navController, viewModel)
@@ -48,7 +42,7 @@ class ProfileFeatureEntryImpl @Inject constructor() : ProfileFeatureEntry() {
             composable(route = InternalRoutes.SETTINGS) {
                 val viewModel = injectedViewModel {
                     DaggerSettingsComponent.builder()
-                        .profileComponent(parentComponent)
+                        .profileComponent(buildRootProfileComponent(LocalDataProvider.current))
                         .build()
                         .viewModel
                 }
@@ -56,6 +50,10 @@ class ProfileFeatureEntryImpl @Inject constructor() : ProfileFeatureEntry() {
             }
         }
     }
+
+    private fun buildRootProfileComponent(dataProvider: DataProvider) =
+        DaggerProfileComponent.builder().dataProvider(dataProvider).build()
+
 
     internal object InternalRoutes {
         const val SETTINGS = "settings"

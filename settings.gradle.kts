@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "jetpack-compose-arch-sample"
+rootProject.name = "compose-arch-sample"
 include(":app")
 include(":images:api", ":images:impl")
 include(":profile:api", ":profile:impl")

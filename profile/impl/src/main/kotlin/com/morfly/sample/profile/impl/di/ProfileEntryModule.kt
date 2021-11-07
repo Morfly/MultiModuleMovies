@@ -2,8 +2,8 @@ package com.morfly.sample.profile.impl.di
 
 import com.morfly.sample.common.FeatureEntry
 import com.morfly.sample.common.di.FeatureEntryKey
-import com.morfly.sample.profile.ProfileFeatureEntry
-import com.morfly.sample.profile.impl.ProfileFeatureEntryImpl
+import com.morfly.sample.profile.ProfileEntry
+import com.morfly.sample.profile.impl.ProfileEntryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -16,6 +16,6 @@ interface ProfileEntryModule {
     @Binds
     @Singleton
     @IntoMap
-    @FeatureEntryKey(ProfileFeatureEntry::class)
-    fun profileEntry(entry: ProfileFeatureEntryImpl): FeatureEntry
+    @FeatureEntryKey(ProfileEntry::class)
+    fun profileEntry(entry: ProfileEntryImpl): FeatureEntry
 }

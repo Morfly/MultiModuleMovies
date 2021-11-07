@@ -1,4 +1,4 @@
-workspace(name = "jetpack-compose-arch-sample")
+workspace(name = "compose-arch-sample")
 
 KOTLIN_COMPILER_VERSION = "1.5.10"
 COMPOSE_VERSION = "1.0.0"

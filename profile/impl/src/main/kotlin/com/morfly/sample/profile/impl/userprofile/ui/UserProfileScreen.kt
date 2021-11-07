@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import com.morfly.sample.profile.impl.ProfileFeatureEntryImpl
+import com.morfly.sample.profile.impl.ProfileEntryImpl
 import com.morfly.sample.profile.impl.userprofile.UserProfileViewModel
 
 
@@ -62,7 +62,7 @@ fun UserProfileScreen(
                         .align(Alignment.CenterEnd)
                         .padding(22.dp)
                         .clickable {
-                            navController.navigate(ProfileFeatureEntryImpl.InternalRoutes.SETTINGS)
+                            navController.navigate(ProfileEntryImpl.InternalRoutes.SETTINGS)
                         }
                 )
             Text(text = viewModel.screenTitle, style = MaterialTheme.typography.subtitle1)

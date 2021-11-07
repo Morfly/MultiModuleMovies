@@ -11,7 +11,7 @@ import com.morfly.sample.data.LocalDataProvider
 import com.morfly.sample.images.ImagesEntry
 import com.morfly.sample.images.impl.di.DaggerImagesComponent
 import com.morfly.sample.images.impl.ui.ImageListScreen
-import com.morfly.sample.profile.ProfileFeatureEntry
+import com.morfly.sample.profile.ProfileEntry
 import javax.inject.Inject
 
 
@@ -32,7 +32,7 @@ class ImagesEntryImpl @Inject constructor() : ImagesEntry() {
 
         ImageListScreen(viewModel, onUserSelected = { userId ->
             val profileDestination = destinations
-                .find<ProfileFeatureEntry>()
+                .find<ProfileEntry>()
                 .destination(userId)
             navController.navigate(profileDestination)
         })

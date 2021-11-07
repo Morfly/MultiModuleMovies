@@ -46,7 +46,7 @@ import com.morfly.sample.common.ui.GlowingMenuIcon
 import com.morfly.sample.common.ui.glow
 import com.morfly.sample.common.ui.theme.AppBlack
 import com.morfly.sample.images.ImagesEntry
-import com.morfly.sample.profile.ProfileFeatureEntry
+import com.morfly.sample.profile.ProfileEntry
 
 
 @Composable
@@ -100,7 +100,7 @@ fun BottomMenuBar(
                 interactionSource = remember { MutableInteractionSource() }
             ) {
                 val route = destinations
-                    .find<ProfileFeatureEntry>()
+                    .find<ProfileEntry>()
                     .myProfileDestination()
                 navController.navigate(route) {
                     launchSingleTop = true

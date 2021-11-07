@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.morfly.sample.common.find
 import com.morfly.sample.archcompose.di.LocalAppProvider
-import com.morfly.sample.images.ImagesEntry
-import com.morfly.sample.profile.ProfileFeatureEntry
 import com.morfly.sample.archcompose.ui.BottomMenuBar
+import com.morfly.sample.common.find
+import com.morfly.sample.images.ImagesEntry
+import com.morfly.sample.profile.ProfileEntry
 
 
 @Composable
@@ -21,7 +21,7 @@ fun Navigation() {
     val destinations = LocalAppProvider.current.destinations
 
     val imagesScreen = destinations.find<ImagesEntry>()
-    val profileScreen = destinations.find<ProfileFeatureEntry>()
+    val profileScreen = destinations.find<ProfileEntry>()
 
     Box(Modifier.fillMaxSize()) {
         NavHost(navController, startDestination = imagesScreen.destination()) {

@@ -8,7 +8,7 @@ import com.morfly.sample.common.AggregateFeatureEntry
 /**
  * API of the entry point to the 'profile' feature.
  */
-abstract class ProfileFeatureEntry : AggregateFeatureEntry {
+abstract class ProfileEntry : AggregateFeatureEntry {
 
     /**
      * Declares an entry route of the feature.

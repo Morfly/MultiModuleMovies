@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @Module
 interface ImagesEntryModule {
 
-
     @Binds
     @Singleton
     @IntoMap
