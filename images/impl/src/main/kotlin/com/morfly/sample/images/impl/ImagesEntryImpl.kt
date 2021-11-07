@@ -33,7 +33,7 @@ class ImagesEntryImpl @Inject constructor() : ImagesEntry() {
         ImageListScreen(viewModel, onUserSelected = { userId ->
             val profileDestination = destinations
                 .find<ProfileEntry>()
-                .destination(userId)
+                .userProfileDestination(userId)
             navController.navigate(profileDestination)
         })
     }

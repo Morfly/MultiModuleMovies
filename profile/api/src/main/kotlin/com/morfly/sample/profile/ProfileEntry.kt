@@ -29,7 +29,7 @@ abstract class ProfileEntry : AggregateFeatureEntry {
     /**
      * Builds destination to the profile page of a specific user.
      */
-    fun destination(userId: String): String =
+    fun userProfileDestination(userId: String): String =
         "profile?$ARG_USER_ID=$userId"
 
     /**
