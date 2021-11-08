@@ -3,13 +3,15 @@ Sample project that shows an approach for designing a multi-module architecture 
 Android applications.
 
 <div>
-  <img align="center" src="cover.jpg" alt="App screenshots" height="640">
+  <table><tr><td>
+    <img align="center" src="cover.jpg" alt="App screenshots" height="430" style="border: 1px solid black">
+  </td></tr></table>
 </div>
 
 ## Bazel
-This project is also buildable with [Bazel](https://bazel.build/) build system.
+In addition to Gradle, this project is also buildable with [Bazel](https://bazel.build/) build system.
 
 In order to run the app with Bazel use the following command.
-```
+```shell
 bazelisk mobile-install //app:bin
 ```
