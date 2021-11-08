@@ -4,7 +4,7 @@ Android applications.
 
 <div>
   <table><tr><td>
-    <img align="center" src="cover.jpg" alt="App screenshots" height="430" style="border: 1px solid black">
+    <img align="center" src="cover.jpg" alt="App screenshots" width="650">
   </td></tr></table>
 </div>
 
