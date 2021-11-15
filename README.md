@@ -37,7 +37,7 @@ In addition, there is a **common** module that contains all the shared code for 
 Each **feature** is separated into 2 parts:
 
 - **API** - that defines a set of public interfaces that allow other application components to interact with the feature. No specific implementation logic is allowed here.
-- **Implementation** - that contains all the internal implementation details of the feature. Other features are now aware of this part which means that any update to the application binary interface (ABI) won't force the build system to rebuild all modules that depend on it.
+- **Implementation** - that contains all the internal implementation details of the feature. Other features are not aware of this part. This means that any update to the application binary interface (ABI) won't force the build system to rebuild all modules that depend on the feature.
 
 ## Bazel
 In addition to Gradle, this project is also buildable with [Bazel](https://bazel.build/) build system.
