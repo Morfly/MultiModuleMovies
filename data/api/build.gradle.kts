@@ -11,25 +11,23 @@ android {
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
+        kotlinCompilerExtensionVersion = versions.composeCompiler
     }
 }
 
-// Versions are declared in gradle/libs.versions.toml
 dependencies {
-
-    // Type-safe project accessors
-    implementation(projects.common)
+    implementation(project(":common"))
 
     // ===== android =====
-    implementation(libs.bundles.android)
+    implementation(libs.android)
 
     // ===== compose =====
-    implementation(libs.bundles.compose)
-    debugImplementation(libs.composeTooling)
+    implementation(libs.compose)
 
     // ===== tests =====
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.bundles.androidTest)
-    androidTestImplementation(libs.composeTest)
+    testImplementation(libs.unitTests)
+    androidTestImplementation(libs.androidTests)
+
+    // ===== debug =====
+    debugImplementation(libs.debug)
 }

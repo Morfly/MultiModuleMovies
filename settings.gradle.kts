@@ -1,8 +1,12 @@
 @file:Suppress("UnstableApiUsage")
 
-enableFeaturePreview("VERSION_CATALOGS")
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -10,10 +14,15 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+rootProject.name = "movies-compose-multi-module"
 
-rootProject.name = "compose-arch-sample"
 include(":app")
-include(":images:api", ":images:impl")
-include(":profile:api", ":profile:impl")
-include(":data:api", ":data:impl")
+include(":movie-search:api")
+include(":movie-search:impl")
+include(":movie-details:api")
+include(":movie-details:impl")
+include(":data:api")
+include(":data:impl")
 include(":common")
+
+include(":benchmark")

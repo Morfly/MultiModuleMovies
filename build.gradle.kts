@@ -1,4 +1,6 @@
-// Android and Kotlin Gradle plugins are declared in buildSrc/build.gradle.kts
+plugins {
+    id("com.google.devtools.ksp") version versions.ksp apply false
+}
 
 tasks.register<Delete>("clean") {
     delete(rootProject.buildDir)

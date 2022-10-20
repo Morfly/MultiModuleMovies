@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 import com.android.build.gradle.BaseExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -8,11 +6,11 @@ fun android(configuration: BaseExtension.() -> Unit) = configure(configuration)
 
 // Common configuration for all Android modules.
 android {
-    compileSdkVersion(31)
+    compileSdkVersion(33)
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 30
+        minSdk = 23
+        targetSdk = 32
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

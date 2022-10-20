@@ -9,7 +9,7 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.morfly.sample.archcompose"
+        applicationId = "io.morfly.streaming"
         versionCode = 1
         versionName = "1.0"
 
@@ -27,33 +27,33 @@ android {
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
+        kotlinCompilerExtensionVersion = versions.composeCompiler
     }
 }
 
-
-// Versions are declared in gradle/libs.versions.toml
 dependencies {
-
-    // Type-safe project accessors
-    implementation(projects.images.impl)
-    implementation(projects.profile.impl)
-    implementation(projects.data.impl)
-    implementation(projects.common)
+    implementation(project(":movie-search:impl"))
+    implementation(project(":movie-details:impl"))
+    implementation(project(":data:impl"))
+    implementation(project(":common"))
 
     // ===== android =====
-    implementation(libs.bundles.android)
+    implementation(libs.android)
 
     // ===== compose =====
-    implementation(libs.bundles.compose)
-    debugImplementation(libs.composeTooling)
+    implementation(libs.compose)
 
     // ===== dagger =====
     implementation(libs.dagger)
     kapt(libs.daggerCompiler)
 
-    // ===== tests =====
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.bundles.androidTest)
-    androidTestImplementation(libs.composeTest)
+    // ===== test =====
+    testImplementation(libs.unitTests)
+    androidTestImplementation(libs.androidTests)
+
+    // ===== debug =====
+    debugImplementation(libs.debug)
+
+    // ===== baseline profiles =====
+    implementation(libs.profileInstaller)
 }

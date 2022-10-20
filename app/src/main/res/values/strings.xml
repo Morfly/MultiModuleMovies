@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">compose-arch-sample</string>
+    <string name="app_name">Movies Compose Multi-Module</string>
+    <string name="not_implemented">Not implemented!</string>
 </resources>

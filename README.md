@@ -1,45 +1,35 @@
-# Compose Multi-Module Architecture Sample
-Sample project that shows an approach for designing a multi-module architecture for Jetpack Compose
-Android applications.
+# Multi-Module Movies
+Multi-Module Movies is a The Movie DB project that demonstrates how to build a scalable multi-module architecture for Android apps that use Jetpack Compose.
 
-<div>
-  <table><tr><td>
-    <img align="center" src="cover.jpg" alt="App screenshots" width="650">
-  </td></tr></table>
-</div>
+![image screenshots](screenshots.png)
 
-## Publications
-- [Navigating through multi-module Jetpack Compose applications](https://proandroiddev.com/6c9a31fa12b6)
-on ProAndroidDev
-  
-## Architecture
-
-<div>
-  <img align="center" src="app_arch.png" alt="Architecture" height="640">
-</div>
-
-The app uses a multi-module architecture that splits each **feature** module into 2 parts:
-
-**API** - that defines a set of public interfaces that allow other application components to interact with the feature. No specific implementation logic is allowed here.
-**Implementation** - that contains all the internal implementation details of the feature. Other features are now aware of this part which means that any update to the application binary interface (ABI) won't force Gradle or Bazel to rebuild all modules that depend on it.
-The **app** module is considered as a dependency injector and an entry point to the application. It's main purpose is to build the dependency graph and then route the user to specific application features that are defined in other modules.
-
-In addition, there is a core module that contains all the shared code for all other modules.
-
-This sample application contains the following feature modules:
-
-**images** - shows image feed by specific user query.
-**profile** - displays profile details of a specific selected user.
-**data** - provides access to the data layer of the application such as network API and persistence.
-
-<div>
-  <img align="center" src="feature_arch.png" alt="Feature Structure" height="640">
-</div>
-
-## Bazel
-In addition to Gradle, this project is also buildable with [Bazel](https://bazel.build/) build system.
-
-In order to run the app with Bazel use the following command.
-```shell
-bazelisk mobile-install //app:bin
+## How to build locally
+Add your API key in `local.properties` file.
+```xml
+tmdb_api_key=API_KEY
 ```
+
+## Technologies  
+The codebase is written in **Kotlin** language with **Jetpack Compose** as a primary UI framework.  
+In addition, the following technologies are used in the project:  
+- *Compose Paging* - for displaying paginated UI lists.
+- *Coil* - for loading images.  
+- *Compose Navigation* - for navigating between features.  
+- *Kotlin Coroutines* - for concurrency.  
+- *Dagger* - for dependency injection.  
+- *Retrofit* - for networking.  
+- *Room* - for persistence and offline mode.  
+  
+## Architecture  
+The project implements a scalable multi-module architecture that aims to achieve the following goals:  
+- **Separation of concerns** - strict isolation and separation of logic between features for easier *testability* and *maintainability* of a codebase.  
+- **Scalability** - the architecture is applicable for projects that use hundreds or thousands Gradle/Bazel modules.  
+- **Dependency graph optimization** - allows keeping a developer productivity on a decent level by preventing long build times and ensuring efficient incremental builds.
+  
+All the project modules could be separated into **3** types:  
+- **Feature modules** - which hold a logic related to a specific feature and consist of **API** and **Impl** modules. Former are framework-agnostic and hold lightweight interfaces as feature entry points.  
+- **Library modules** - commonly used logic by other features.  
+- **Injector modules** - modules that build a dependency graph of the app. E.g. *app* module.  
+  
+  
+![Feature module architecture](architecture.png)  

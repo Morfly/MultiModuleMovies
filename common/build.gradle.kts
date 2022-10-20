@@ -12,28 +12,24 @@ android {
     // ===== compose =====
     buildFeatures.compose = true
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
+        kotlinCompilerExtensionVersion = versions.composeCompiler
     }
 }
 
-// Versions are declared in gradle/libs.versions.toml
 dependencies {
 
     // ===== android =====
-    implementation(libs.bundles.android)
-    implementation(libs.palette)
+    implementation(libs.android)
     implementation(libs.paging)
+    implementation(libs.palette)
 
     // ===== compose =====
-    implementation(libs.bundles.compose)
-    debugImplementation(libs.composeTooling)
+    implementation(libs.compose)
+
+    // ===== kotlin =====
+    implementation(libs.coroutines)
 
     // ===== dagger =====
     implementation(libs.dagger)
     kapt(libs.daggerCompiler)
-
-    // ===== tests ======
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.bundles.androidTest)
-    androidTestImplementation(libs.composeTest)
 }

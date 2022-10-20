@@ -1,0 +1,4 @@
+<resources>
+    <string name="no_movies">No movies to display!</string>
+    <string name="search_hint">Search…</string>
+</resources>
