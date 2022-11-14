@@ -9,6 +9,10 @@ Add your API key in `local.properties` file.
 tmdb_api_key=API_KEY
 ```
 
+## Materials
+Learn more about this project from the publications linked below.
+- [Navigating through multi-module Jetpack Compose applications](https://medium.com/proandroiddev/navigating-through-multi-module-jetpack-compose-applications-6c9a31fa12b6) blog post at **ProAndroidDev**
+- [Scalable multi-module architecture for Jetpack Compose apps](https://youtu.be/j_rEor4YnNc) talk at **Android Worldwide**
 ## Technologies  
 The codebase is written in **Kotlin** language with **Jetpack Compose** as a primary UI framework.  
 In addition, the following technologies are used in the project:  
