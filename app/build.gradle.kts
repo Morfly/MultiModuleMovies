@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "io.morfly.streaming"
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         setProperty("archivesBaseName", "MultiModuleMovies-$versionName")
 
