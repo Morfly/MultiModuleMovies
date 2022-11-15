@@ -13,6 +13,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        setProperty("archivesBaseName", "MultiModuleMovies-$versionName")
+
         vectorDrawables {
             useSupportLibrary = true
         }
